@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/app/components/Navbar";
 import "./globals.css";
+import Footer from "@/app/components/footer";
 
 export const metadata: Metadata = {
   title: "Hero-App",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
