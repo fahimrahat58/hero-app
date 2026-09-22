@@ -28,13 +28,13 @@ export default function InstalledAppsList() {
 
   if (installedApps.length === 0) {
     return (
-      <div className="hero bg-white rounded-2xl border border-gray-100 shadow-sm py-20">
+      <div className="hero bg-white rounded-2xl border border-gray-100 shadow-sm py-12 sm:py-20 px-4">
         <div className="hero-content text-center">
           <div>
-            <h2 className="text-2xl font-bold text-gray-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
               No Apps Installed
             </h2>
-            <p className="text-gray-500 mt-2 mb-6">
+            <p className="text-sm sm:text-base text-gray-500 mt-2 mb-6">
               Install your favorite apps and they will appear here.
             </p>
           </div>
@@ -45,9 +45,8 @@ export default function InstalledAppsList() {
 
   return (
     <div className="space-y-4">
-      {/* Toolbar */}
-      <div className="flex items-center justify-between mb-4">
-        <span className="font-semibold text-gray-800">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+        <span className="font-semibold text-gray-800 text-sm sm:text-base">
           {installedApps.length} Apps Found
         </span>
 
@@ -65,15 +64,14 @@ export default function InstalledAppsList() {
         </div>
       </div>
 
-      {/* List */}
       <div className="flex flex-col gap-3">
         {sortedApps.map((app) => (
           <div
             key={app.id}
-            className="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-100 shadow-sm"
+            className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 p-3 sm:p-4 bg-white rounded-xl border border-gray-100 shadow-sm"
           >
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
                 <Image
                   src={app.image}
                   alt={app.title}
@@ -83,18 +81,20 @@ export default function InstalledAppsList() {
                 />
               </div>
 
-              <div>
-                <h3 className="font-semibold text-gray-900 text-sm sm:text-base">
+              <div className="min-w-0">
+                <h3 className="font-semibold text-gray-900 text-sm sm:text-base truncate">
                   {app.title}
                 </h3>
 
-                <div className="flex items-center gap-3 text-xs text-gray-400 mt-1">
+                <div className="flex flex-wrap items-center gap-x-2 sm:gap-x-3 gap-y-1 text-[11px] sm:text-xs text-gray-400 mt-1">
                   <span className="flex items-center gap-1 text-emerald-500 font-medium">
                     ▲ {app.downloads || "5M"}
                   </span>
+
                   <span className="flex items-center gap-1 text-amber-500">
                     ★ {app.ratingAvg}
                   </span>
+
                   <span>{app.size || "256 MB"}</span>
                 </div>
               </div>
@@ -102,7 +102,7 @@ export default function InstalledAppsList() {
 
             <button
               onClick={() => uninstallApp(app.id)}
-              className="btn btn-sm bg-emerald-400 hover:bg-emerald-500 text-white border-none normal-case rounded-md px-5"
+              className="btn btn-sm w-full sm:w-auto bg-emerald-400 hover:bg-emerald-500 text-white border-none normal-case rounded-md px-5"
             >
               Uninstall
             </button>

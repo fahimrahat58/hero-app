@@ -15,15 +15,12 @@ const AppDetailsPage = async ({ params }) => {
   }
 
   return (
-    <main className="min-h-screen bg-gray-50/50 py-10">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="bg-white rounded-2xl border border-gray-100 p-6 sm:p-10 shadow-sm space-y-8">
-
+    <main className="min-h-screen bg-gray-50/50 py-6 sm:py-10">
+      <div className="max-w-4xl mx-auto px-3 sm:px-6">
+        <div className="bg-white rounded-2xl border border-gray-100 p-4 sm:p-6 md:p-10 shadow-sm space-y-6 sm:space-y-8">
           {/* Header Section */}
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-6 border-b border-gray-100 pb-8 text-center md:text-left">
-
-            {/* App Icon */}
-            <div className="w-28 h-28 sm:w-32 sm:h-32 bg-gray-100 rounded-3xl overflow-hidden relative flex-shrink-0 border border-gray-100 shadow-sm">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-5 sm:gap-6 border-b border-gray-100 pb-6 sm:pb-8 text-center md:text-left">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-gray-100 rounded-2xl sm:rounded-3xl overflow-hidden relative flex-shrink-0 border border-gray-100 shadow-sm">
               {app.image ? (
                 <Image
                   src={app.image}
@@ -39,10 +36,9 @@ const AppDetailsPage = async ({ params }) => {
               )}
             </div>
 
-            {/* Title & Stats */}
-            <div className="flex-1 space-y-4">
+            <div className="flex-1 w-full space-y-3 sm:space-y-4">
               <div>
-                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-1">
                   {app.title}
                 </h1>
 
@@ -54,59 +50,54 @@ const AppDetailsPage = async ({ params }) => {
                 </p>
               </div>
 
-              {/* Stats */}
-              <div className="flex items-center justify-center md:justify-start gap-8 py-2">
-
-                <div className="text-center">
-                  <p className="text-xl font-bold text-gray-900">
+              <div className="flex items-center justify-center md:justify-start gap-4 sm:gap-8 py-2">
+                <div className="text-center min-w-0">
+                  <p className="text-lg sm:text-xl font-bold text-gray-900">
                     {app.downloads}
                   </p>
-                  <p className="text-xs text-gray-400">
+                  <p className="text-[10px] sm:text-xs text-gray-400">
                     Downloads
                   </p>
                 </div>
 
-                <div className="h-8 w-[1px] bg-gray-200" />
+                <div className="h-8 w-[1px] bg-gray-200 shrink-0" />
 
-                <div className="text-center">
-                  <p className="text-xl font-bold text-gray-900 flex items-center justify-center gap-1">
+                <div className="text-center min-w-0">
+                  <p className="text-lg sm:text-xl font-bold text-gray-900 flex items-center justify-center gap-1">
                     <span>★</span>
                     {app.ratingAvg}
                   </p>
 
-                  <p className="text-xs text-gray-400">
+                  <p className="text-[10px] sm:text-xs text-gray-400">
                     Average Rating
                   </p>
                 </div>
 
-                <div className="h-8 w-[1px] bg-gray-200" />
+                <div className="h-8 w-[1px] bg-gray-200 shrink-0" />
 
-                <div className="text-center">
-                  <p className="text-xl font-bold text-gray-900">
+                <div className="text-center min-w-0">
+                  <p className="text-lg sm:text-xl font-bold text-gray-900">
                     {app.reviews}
                   </p>
 
-                  <p className="text-xs text-gray-400">
+                  <p className="text-[10px] sm:text-xs text-gray-400">
                     Total Reviews
                   </p>
                 </div>
-
               </div>
 
-              {/* Install Button */}
-              <div>
+              <div className="flex justify-center md:justify-start">
                 <InstallButton app={app} />
               </div>
             </div>
           </div>
 
-          {/* Ratings */}
-          <div className="border-b border-gray-100 pb-8">
+          <div className="border-b border-gray-100 pb-6 sm:pb-8">
             <h2 className="text-base font-semibold text-gray-900 mb-4">
               Ratings
             </h2>
 
-            <div className="space-y-2 max-w-xl">
+            <div className="space-y-2 w-full max-w-xl">
               {[
                 { stars: "5 star", pct: "w-[80%]" },
                 { stars: "4 star", pct: "w-[50%]" },
@@ -116,11 +107,9 @@ const AppDetailsPage = async ({ params }) => {
               ].map((item) => (
                 <div
                   key={item.stars}
-                  className="flex items-center gap-3 text-xs text-gray-500"
+                  className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500"
                 >
-                  <span className="w-10 text-right">
-                    {item.stars}
-                  </span>
+                  <span className="w-10 shrink-0 text-right">{item.stars}</span>
 
                   <div className="flex-1 h-3 bg-gray-100 rounded-full overflow-hidden">
                     <div
@@ -132,7 +121,6 @@ const AppDetailsPage = async ({ params }) => {
             </div>
           </div>
 
-          {/* Description */}
           <div>
             <h2 className="text-base font-semibold text-gray-900 mb-3">
               Description
@@ -142,7 +130,6 @@ const AppDetailsPage = async ({ params }) => {
               {app.description}
             </p>
           </div>
-
         </div>
       </div>
     </main>

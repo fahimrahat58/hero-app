@@ -7,9 +7,7 @@ import { toast } from "react-toastify";
 const InstallButton = ({ app }: { app: Root2 }) => {
   const { installedApps, installApp, uninstallApp } = useAppContext();
 
-  const isInstalled = installedApps.some(
-    (item) => item.id === app.id
-  );
+  const isInstalled = installedApps.some((item) => item.id === app.id);
 
   const handleInstall = () => {
     installApp(app);
@@ -25,7 +23,7 @@ const InstallButton = ({ app }: { app: Root2 }) => {
     return (
       <button
         onClick={handleUninstall}
-        className="btn btn-error btn-sm text-white"
+        className="btn btn-error btn-sm text-white w-full sm:w-auto px-4"
       >
         Uninstall
       </button>
@@ -35,7 +33,7 @@ const InstallButton = ({ app }: { app: Root2 }) => {
   return (
     <button
       onClick={handleInstall}
-      className="btn btn-success btn-sm text-white"
+      className="btn btn-success btn-sm text-white w-full sm:w-auto px-4"
     >
       Install Now ({app.size} MB)
     </button>
