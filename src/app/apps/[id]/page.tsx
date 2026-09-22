@@ -18,7 +18,6 @@ const AppDetailsPage = async ({ params }) => {
     <main className="min-h-screen bg-gray-50/50 py-6 sm:py-10">
       <div className="max-w-4xl mx-auto px-3 sm:px-6">
         <div className="bg-white rounded-2xl border border-gray-100 p-4 sm:p-6 md:p-10 shadow-sm space-y-6 sm:space-y-8">
-          {/* Header Section */}
           <div className="flex flex-col md:flex-row items-center md:items-start gap-5 sm:gap-6 border-b border-gray-100 pb-6 sm:pb-8 text-center md:text-left">
             <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-gray-100 rounded-2xl sm:rounded-3xl overflow-hidden relative flex-shrink-0 border border-gray-100 shadow-sm">
               {app.image ? (
