@@ -1,9 +1,11 @@
-export async function getApps() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/data.json`);
+import fs from "fs/promises";
+import path from "path";
+import type { Root2 } from "@/app/type/productType";
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch apps");
-  }
+export async function getApps(): Promise<Root2[]> {
+  const filePath = path.join(process.cwd(), "public", "data.json");
 
-  return res.json();
+  const file = await fs.readFile(filePath, "utf-8");
+
+  return JSON.parse(file);
 }
