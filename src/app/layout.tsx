@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Navbar from "@/app/components/Navbar";
 import "./globals.css";
 import Footer from "@/app/components/footer";
+import { AppProvider } from "./context/appContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 export const metadata: Metadata = {
   title: "Hero-App",
@@ -16,9 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light">
       <body>
+        <AppProvider>
         <Navbar />
         {children}
         <Footer />
+        <ToastContainer position="top-right" autoClose={2000} />
+        </AppProvider>
       </body>
     </html>
   );
