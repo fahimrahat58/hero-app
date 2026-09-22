@@ -2,10 +2,19 @@
 
 import React from "react";
 
-const AppSearch = ({ searchQuery, setSearchQuery, totalCount }) => {
+type AppSearchProps = {
+  searchQuery: string;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+  totalCount: number;
+};
+
+const AppSearch = ({
+  searchQuery,
+  setSearchQuery,
+  totalCount,
+}: AppSearchProps) => {
   return (
     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-8">
-      {/* Total Apps Count */}
       <p className="text-xs sm:text-sm font-medium text-gray-600">
         ({totalCount}) Apps Found
       </p>

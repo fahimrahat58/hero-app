@@ -1,13 +1,18 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import type { Root2 } from "@/app/type/productType";
 
-const AppProductCard = ({ app }) => {
-  const id = app?.id || app?._id;
-  const title = app?.title || app?.name || "Untitled App";
-  const downloads = app?.downloads || app?.totalDownloads || "0";
-  const rating = app?.rating || app?.stars || "0.0";
-  const imageUrl = app?.image || app?.icon || app?.thumbnail;
+type AppProductCardProps = {
+  app: Root2;
+};
+
+const AppProductCard = ({ app }: AppProductCardProps) => {
+  const id = app?.id;
+  const title = app?.title || "Untitled App";
+  const downloads = app?.downloads || "0";
+  const rating = app?.ratingAvg || "0.0";
+  const imageUrl = app?.image;
 
   return (
     <Link href={`/apps/${id}`} className="block w-full max-w-[200px] mx-auto">

@@ -2,9 +2,10 @@ import ProductCard from "./components/home-page/trendingApps";
 import Banner from "./components/home-page/banner";
 import { getApps } from "./lib/getApps";
 import Link from "next/link";
+import type { Root2 } from "./type/productType";
 
 const Home = async () => {
-  const apps = await getApps();
+  const apps: Root2[] = await getApps();
 
   return (
     <>
@@ -22,15 +23,8 @@ const Home = async () => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 place-items-center w-full">
-          {apps.slice(0, 8).map((app, index) => (
-            <ProductCard
-              key={
-                typeof app.id === "string" || typeof app.id === "number"
-                  ? app.id
-                  : `app-${index}`
-              }
-              app={app}
-            />
+          {apps.slice(0, 8).map((app: Root2) => (
+            <ProductCard key={app.id} app={app} />
           ))}
         </div>
 

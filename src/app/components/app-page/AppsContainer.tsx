@@ -1,15 +1,20 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import AppSearch from "./AppSearch";
 import AppProductCard from "./AppProductCard";
+import type { Root2 } from "@/app/type/productType";
 
-const AppsContainer = ({ initialApps = [] }) => {
+type AppsContainerProps = {
+  initialApps: Root2[];
+};
+
+const AppsContainer = ({ initialApps }: AppsContainerProps) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredApps = useMemo(() => {
-    return initialApps.filter((app) =>
-      app?.title?.toLowerCase().includes(searchQuery.toLowerCase()),
+    return initialApps.filter((app: Root2) =>
+      app.title.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   }, [searchQuery, initialApps]);
 
@@ -23,8 +28,8 @@ const AppsContainer = ({ initialApps = [] }) => {
 
       {filteredApps.length > 0 ? (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 place-items-center w-full">
-          {filteredApps.map((app, index) => (
-            <AppProductCard key={app?.id ?? `app-${index}`} app={app} />
+          {filteredApps.map((app: Root2) => (
+            <AppProductCard key={app.id} app={app} />
           ))}
         </div>
       ) : (

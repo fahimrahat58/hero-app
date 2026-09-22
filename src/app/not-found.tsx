@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import errImage from '../app/assets/5156006_2689520 1.png'
+import errImage from "../app/assets/5156006_2689520 1.png";
 
 export default function NotFound() {
   return (
@@ -17,17 +17,14 @@ export default function NotFound() {
           />
         </div>
 
-        {/* Heading */}
         <h1 className="text-3xl font-bold text-gray-900 tracking-tight">
           Oops, page not found!
         </h1>
 
-        {/* Subtitle */}
         <p className="text-sm text-gray-500 mt-2 mb-8">
           The page you are looking for is not available.
         </p>
 
-        {/* Go Back Button */}
         <Link
           href="/"
           className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm px-6 py-2.5 rounded-md transition-colors shadow-sm"

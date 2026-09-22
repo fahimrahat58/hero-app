@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import type { Root2 } from "@/app/type/productType";
 
 type AppContextType = {
@@ -11,11 +11,7 @@ type AppContextType = {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-export const AppProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [installedApps, setInstalledApps] = useState<Root2[]>([]);
 
   useEffect(() => {

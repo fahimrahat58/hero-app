@@ -2,13 +2,20 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getApps } from "@/app/lib/getApps";
 import InstallButton from "@/app/components/app-page/InstallButton";
+import { Root2 } from "@/app/type/productType";
 
-const AppDetailsPage = async ({ params }) => {
+type AppDetailsPageProps = {
+  params: Promise<{
+    id: string;
+  }>;
+};
+
+const AppDetailsPage = async ({ params }: AppDetailsPageProps) => {
   const { id } = await params;
 
   const apps = (await getApps()) || [];
 
-  const app = apps.find((item) => String(item.id) === String(id));
+  const app = apps.find((item:Root2) => String(item.id) === String(id));
 
   if (!app) {
     notFound();
