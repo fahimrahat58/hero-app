@@ -49,7 +49,7 @@ The project focuses on:
 
 <p align="center">
   <img
-    src="./public/screenshots/homepage.png"
+    src="./public/Screenshot 2026-10-04 215119.png"
     alt="Hero App Homepage"
     width="100%"
   />
